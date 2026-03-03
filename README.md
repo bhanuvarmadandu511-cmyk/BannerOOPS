@@ -5,16 +5,48 @@ public class OopsBanner {
     }
 
     public static void renderBanner() {
-        String[] bannerLines = {
-            String.join("", " OOOO ", "  PPPP  ", "  PPPP  ", "  SSSS "),
-            String.join("", "O    O", " P   P ", " P   P ", " S     "),
-            String.join("", "O    O", " PPPP  ", " PPPP  ", "  SSS  "),
-            String.join("", "O    O", " P     ", " P     ", "     S "),
-            String.join("", " OOOO ", " P     ", " P     ", " SSSS  ")
-        };
+        String[] oPattern = getOPattern();
+        String[] pPattern = getPPattern();
+        String[] sPattern = getSPattern();
+
+        String[] bannerLines = new String[5];
+
+        for (int i = 0; i < 5; i++) {
+            bannerLines[i] = String.join("", oPattern[i], pPattern[i], pPattern[i], sPattern[i]);
+        }
 
         for (String line : bannerLines) {
             System.out.println(line);
         }
+    }
+
+    public static String[] getOPattern() {
+        return new String[]{
+            " OOOO ",
+            "O    O",
+            "O    O",
+            "O    O",
+            " OOOO "
+        };
+    }
+
+    public static String[] getPPattern() {
+        return new String[]{
+            "  PPPP  ",
+            " P   P ",
+            " PPPP  ",
+            " P     ",
+            " P     "
+        };
+    }
+
+    public static String[] getSPattern() {
+        return new String[]{
+            "  SSSS ",
+            " S     ",
+            "  SSS  ",
+            "     S ",
+            " SSSS  "
+        };
     }
 }
